@@ -1,70 +1,195 @@
-# Getting Started with Create React App
+# 📰 Fake News Detector for Students  
+### AI-Powered News Credibility Checker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Python](https://img.shields.io/badge/Python-3.9+-blue)
+![React](https://img.shields.io/badge/React-JS-61dafb)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Scikit--Learn-orange)
+![Status](https://img.shields.io/badge/Backend-Online-success)
+![License](https://img.shields.io/badge/License-Academic-lightgrey)
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Overview
 
-### `npm start`
+**Fake News Detector for Students** is a full-stack AI web application that helps students identify whether a news article is **Real** or **Fake** using **Machine Learning and NLP**.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+With the rapid spread of misinformation on social media and online platforms, this tool encourages responsible information sharing by providing quick and reliable credibility analysis.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🎯 Key Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ✅ AI-based Fake vs Real news classification  
+- 🧠 Machine Learning with NLP (TF-IDF + Classifier)  
+- ⚡ Fast and responsive React frontend  
+- 🌐 Flask backend with REST API  
+- 🟢 Live backend status indicator (health check)  
+- 🎨 Modern, futuristic, student-friendly UI  
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧠 How the System Works
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. User pastes a news article into the web interface  
+2. Text is sent to the Flask backend via API  
+3. ML model processes the text using TF-IDF  
+4. Classifier predicts **Real** or **Fake**  
+5. Result and confidence score are shown instantly  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🛠️ Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Frontend
+- React JS  
+- HTML5, CSS3  
+- JavaScript (ES6+)  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Backend
+- Python  
+- Flask  
+- Flask-CORS  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Machine Learning
+- Scikit-learn  
+- TF-IDF Vectorizer  
+- Passive Aggressive Classifier  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Tools & Platforms
+- Kaggle (Dataset & Model Training)  
+- GitHub (Version Control & Hosting)  
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📂 Project Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
 
-### Code Splitting
+fake-news-detector/
+│
+├── backend/
+│   ├── app.py
+│   ├── fake_news_model.pkl
+│   ├── vectorizer.pkl
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+└── README.md
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+````
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## ⚙️ Installation & Setup
 
-### Making a Progressive Web App
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/abhranilduttaabhi/fake-news-detector.git
+cd fake-news-detector
+````
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+### 2️⃣ Backend Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+cd backend
+pip install -r requirements.txt
+python app.py
+```
 
-### Deployment
+Backend runs at:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+http://127.0.0.1:5000
+```
 
-### `npm run build` fails to minify
+Health check:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+http://127.0.0.1:5000/health
+```
+
+---
+
+### 3️⃣ Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+Frontend runs at:
+
+```
+http://localhost:3000
+```
+
+---
+
+## 🟢 Backend Status Indicator
+
+The UI includes a **live backend health indicator**:
+
+* 🟢 Green light → Backend running
+* 🔴 Red light → Backend offline
+
+This improves reliability and user awareness.
+
+---
+
+## 📸 Screenshots
+![Home UI](https://github.com/Abhranil2004/---Fake-News-Detection-Using-Machine-Learning/blob/general/Screenshorts/home.png)
+![Fake Result](https://github.com/Abhranil2004/---Fake-News-Detection-Using-Machine-Learning/blob/general/Screenshorts/fake.png)
+![Real Result](https://github.com/Abhranil2004/---Fake-News-Detection-Using-Machine-Learning/blob/general/Screenshorts/correct.png)
+
+---
+
+## 📊 Results
+
+* Accurate classification of news articles
+* Low response time
+* Clean and intuitive interface
+* Suitable for academic submission, demos, and portfolios
+
+---
+
+## 🔮 Future Enhancements
+
+* 🌍 Multi-language fake news detection
+* 📰 News source credibility scoring
+* 🤖 AI-generated news summaries
+* 📱 Mobile application
+* 🔗 Social media integration
+
+---
+
+## 👨‍💻 Developer
+
+**Abhranil Dutta**
+
+* GitHub: [https://github.com/Abhranil2004](https://github.com/Abhranil2004)
+
+---
+
+## 📜 License
+
+This project is developed for **academic and educational purposes**.
+
+---
+
+## 🙏 Acknowledgements
+
+* Kaggle Datasets
+* Scikit-learn Documentation
+* Python Community
+* Open-source contributors
+
+---
+
+⭐ If you like this project, consider starring the repository!
