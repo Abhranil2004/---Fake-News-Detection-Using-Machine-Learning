@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pickle
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -19,22 +20,31 @@ def health():
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    data = request.get_json()
-    news_text = data["text"]
+    try:
+        data = request.get_json()
+        news_text = data.get("text", "")
 
-    # Transform text
-    text_vector = vectorizer.transform([news_text])
+        if news_text.strip() == "":
+            return jsonify({"error": "No text provided"}), 400
 
-    # Prediction
-    prediction = model.predict(text_vector)[0]
-    confidence = model.decision_function(text_vector)[0]
+        # Transform text
+        text_vector = vectorizer.transform([news_text])
 
-    result = "Fake News" if prediction == 0 else "Real News"
+        # Prediction
+        prediction = model.predict(text_vector)[0]
+        confidence = model.decision_function(text_vector)[0]
 
-    return jsonify({
-        "prediction": result,
-        "confidence": round(abs(float(confidence)), 2)
-    })
+        result = "Fake News" if prediction == 0 else "Real News"
+
+        return jsonify({
+            "prediction": result,
+            "confidence": round(abs(float(confidence)), 2)
+        })
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
